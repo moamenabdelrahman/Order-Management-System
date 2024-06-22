@@ -16,3 +16,8 @@
 
 ## API Documentation URL on Postman:
 - https://documenter.getpostman.com/view/36471329/2sA3XWbyLd
+
+
+## ERD:
+
+![ERD](ERD.png "ERD")
