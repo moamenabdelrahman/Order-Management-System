@@ -13,3 +13,11 @@
 - Then run “npx prisma migrate dev”.
 - Then run “npm run start”.
 - Now the API is listening requests on port 3000. You can request it using ThunderClient, Postman, Swagger, or any similar tool.
+
+## API Documentation URL on Postman:
+- https://documenter.getpostman.com/view/36471329/2sA3XWbyLd
+
+
+## ERD:
+
+![ERD](ERD.png "ERD")
