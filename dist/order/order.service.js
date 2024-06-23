@@ -44,9 +44,6 @@ let OrderService = class OrderService {
             }
         });
     }
-    async getAllOrders() {
-        return await this.db.order.findMany();
-    }
     async retrieveAllOrders() {
         return await this.db.order.findMany();
     }
@@ -83,13 +80,6 @@ let OrderService = class OrderService {
                 total: givenOrder.total * (1 - givenCoup.discountPct)
             }
         });
-    }
-    async deleteOrderbyOrderID(orderID) {
-        const givenOrder = await this.retrieveOrder(orderID);
-        if (!givenOrder)
-            return;
-        await this.cart.deleteCart(givenOrder.cartId);
-        await this.deleteOrderbyCartID(givenOrder.cartId);
     }
     async deleteOrderbyCartID(cartID) {
         await this.db.order.deleteMany({

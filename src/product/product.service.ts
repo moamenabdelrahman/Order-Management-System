@@ -7,22 +7,22 @@ export class ProductService {
   constructor(private readonly db: DatabaseService) {}
 
   /*
-   * Functions to implement:
+   * Functions Index:
    *    [createProduct]
-   *    given(row) ==> insert it
+   *    given(product details) ==> create new product row
    *    
    *    [retrieveAllProducts]
    *    given() ==> return all rows
    *    [retrieveProduct]
-   *    given(productId) ==> a row
+   *    given(productId) ==> a product row
    *    [isEnoughStock]
    *    given(productId, quantity) ==> returns true if quantitiy <= stock, otherwise false
    *    
    *    [reduceStock]
-   *    given(productId, quantity) ==> update row by reducing stock by quantity
+   *    given(productId, quantity) ==> reduce product.stock by quantity
    *    
-   *    [deleteProduct]
-   *    given(productId) ==> delete row
+   *    [deleteProduct] *Note: it may cause referential integrity issues (be careful)
+   *    given(productId) ==> delete a product row
    */
 
 

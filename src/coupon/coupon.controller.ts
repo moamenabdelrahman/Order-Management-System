@@ -10,6 +10,7 @@ export class CouponController {
   constructor(private readonly couponService: CouponService) {}
 
   /**
+   * Returns:
    * No such coupon!
    * or nothing if success
    */
@@ -20,6 +21,7 @@ export class CouponController {
   }
 
   /**
+   * Returns:
    * No such coupon!
    * Can't be deleted, because it's used!
    * or nothing if success
@@ -31,6 +33,7 @@ export class CouponController {
   }
 
   /**
+   * Returns:
    * return the coupon
    * {
    *  couponId;
@@ -46,6 +49,7 @@ export class CouponController {
   }
 
   /**
+   * Returns:
    * Can't apply a discount of more than 1!
    * or if success
    * {
@@ -63,6 +67,7 @@ export class CouponController {
   }
 
   /**
+   * Returns:
    * returns list of
    * {
    *  couponId;

@@ -3,7 +3,7 @@ import { orderCoupon, orderStatusDto, userIdDto } from './dto/DTOs.dto';
 export declare class OrderController {
     private readonly orderService;
     constructor(orderService: OrderService);
-    applyCoupon(body: orderCoupon): Promise<"Can't use this coupon, because it's already used!" | "No such coupon!" | "No such order!">;
+    applyCoupon(body: orderCoupon): Promise<"No such coupon!" | "No such order!" | "Can't use this coupon, because it's already used!">;
     updateOrderStatus(orderID: number, body: orderStatusDto): Promise<string>;
     getOrderTotal(orderID: number): Promise<any>;
     getOrderbyID(orderID: number): Promise<unknown>;

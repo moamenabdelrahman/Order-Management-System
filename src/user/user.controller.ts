@@ -10,6 +10,7 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   /**
+   * Returns:
    * No such user!
    * or if success list of
    * {
@@ -29,7 +30,7 @@ export class UserController {
   }
 
   /**
-   * returns
+   * Returns:
    * {
    *  userId;
    *  name;
@@ -46,7 +47,7 @@ export class UserController {
     return await this.userService.retrieveUserbyUserID(userID);
   }
 
-  // returns nothing
+  // Returns: nothing
   @Delete(':userID')
   async deleteUser(@Param('userID', ParseIntPipe) userID: number)
   {
@@ -54,7 +55,7 @@ export class UserController {
   }
 
   /**
-   * returns the new user
+   * Returns: the new user
    * {
    *  userId;
    *  name;
@@ -80,7 +81,7 @@ export class UserController {
   }
 
   /**
-   * returns list of users
+   * Returns: list of users
    * {
    *  userId;
    *  name;

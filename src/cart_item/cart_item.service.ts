@@ -12,18 +12,18 @@ export class CartItemService {
   ) {}
 
   /**
-   * Functions to implement:
+   * Functions Index:
    *    [createCartItem]
-   *    given(cartId, prodId, quantity) ==> insert it   
+   *    given(cartId, prodId, quantity) ==> create new cart_item record
    *    
    *    [retrieveAllCartItems]
    *    given() ==> return all rows
    *    [retrieveCartItems]
-   *    given(cartId) ==> return all cart items
+   *    given(cartId) ==> return all items of given cart
    *    [retrieveCartDetails]
-   *    given(cartId, couponId?) ==> return all CartItem JOIN Product, with field `total` = quantity * price * (discount or 1)
+   *    given(cartId, couponId?) ==> return cart details by CartItem JOIN Product, and apply coupon discount if it exists
    *    [retrieveCartTotal]
-   *    given(cartId, couponId?) ==> return sum of quantity * price * (discount or 1) of all CartItem JOIN Product
+   *    given(cartId, couponId?) ==> return sum of quantity * price * (discount if exists) of all CartItems JOIN Product
    *    [retrieveCartItem]
    *    given(cartId, productId) ==> return a row of CartItem
    *    [retrieveCartItemDetails]
@@ -31,15 +31,15 @@ export class CartItemService {
    *    [retrieveOutOfStockItems]
    *    given(cartId) ==> select prod.name of CartItems JOIN Product, where quantity > stock
    *    [isValidCart]
-   *    given(cartId) ==> if retrieveOutOfStockItems return true, otherwise false
+   *    given(cartId) ==> if retrieveOutOfStockItems empty return true, otherwise false
    *    
    *    [updateItemQuantity]
-   *    given(cartId, productId, quantity) ==> update quantity by the given one
+   *    given(cartId, productId, quantity) ==> update cart_item quantity by the given one
    * 
    *    [deleteCartItem]
-   *    given(cartId, productId) ==> delete row
+   *    given(cartId, productId) ==> delete a cart_item row
    *    [deleteCartItems]
-   *    given(cartId) ==> delete all rows of the cart
+   *    given(cartId) ==> delete all cart_item rows of a given cart
    */
 
 
@@ -113,7 +113,6 @@ export class CartItemService {
             WHERE "cartId" = ${cartID}) c
       JOIN "Product" p
         ON c."productId" = p."productId"
-      -- GROUP BY c."cartId"
     `;
   }
   

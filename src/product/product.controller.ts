@@ -30,7 +30,7 @@ export class ProductController {
   /**
    * returns nothing
    */
-  @Delete(':productID')
+  @Delete(':productID') // *NOTE: may cause referntial integrity issues (be careful)
   async delProduct(@Param('productID', ParseIntPipe) productID: number)
   {
     await this.productService.deleteProduct(productID);

@@ -74,7 +74,6 @@ let CartItemService = class CartItemService {
             WHERE "cartId" = ${cartID}) c
       JOIN "Product" p
         ON c."productId" = p."productId"
-      -- GROUP BY c."cartId"
     `;
     }
     async retrieveCartItem(cartID, prodId) {

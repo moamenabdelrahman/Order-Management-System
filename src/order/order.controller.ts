@@ -10,6 +10,7 @@ export class OrderController {
   constructor(private readonly orderService: OrderService) {}
 
   /**
+   * Returns:
    * Can't use this coupon, because it's already used!
    * No such coupon!
    * No such order!
@@ -22,6 +23,7 @@ export class OrderController {
   }
 
   /**
+   * Returns:
    * No such order!
    * or nothing if success
    */
@@ -32,6 +34,7 @@ export class OrderController {
   }
   
   /**
+   * Returns:
    * No such order!
    * or total as single number if success
    */
@@ -42,6 +45,7 @@ export class OrderController {
   }
   
   /**
+   * Returns:
    * No such order!
    * or if success list of
    * {
@@ -62,6 +66,7 @@ export class OrderController {
   }
   
   /**
+   * Returns:
    * No such user!
    * No active cart for this user!
    * Some products have become out of stock!
@@ -83,6 +88,7 @@ export class OrderController {
   }
 
   /**
+   * Returns:
    * list of
    * {
    *  orderId;
@@ -97,6 +103,6 @@ export class OrderController {
   @Get()
   async getAllOrders()
   {
-    return await this.orderService.getAllOrders();
+    return await this.orderService.retrieveAllOrders();
   }
 }

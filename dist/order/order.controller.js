@@ -38,7 +38,7 @@ let OrderController = class OrderController {
         return await this.orderService.createOrder(body.userId);
     }
     async getAllOrders() {
-        return await this.orderService.getAllOrders();
+        return await this.orderService.retrieveAllOrders();
     }
 };
 exports.OrderController = OrderController;

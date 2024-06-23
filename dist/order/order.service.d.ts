@@ -30,15 +30,6 @@ export declare class OrderService {
         orderDate: Date;
         updatedAt: Date;
     }>;
-    getAllOrders(): Promise<{
-        orderId: number;
-        cartId: number;
-        couponId: number;
-        status: import(".prisma/client").$Enums.OrderStatus;
-        total: number;
-        orderDate: Date;
-        updatedAt: Date;
-    }[]>;
     retrieveAllOrders(): Promise<{
         orderId: number;
         cartId: number;
@@ -51,7 +42,6 @@ export declare class OrderService {
     updateStatus(orderID: number, stat: OrderStatus): Promise<void>;
     justApplyCoupon(orderID: number, coupId: number): Promise<void>;
     updateTotalAfterCoupon(orderID: number, coupId: number): Promise<void>;
-    deleteOrderbyOrderID(orderID: number): Promise<void>;
     deleteOrderbyCartID(cartID: number): Promise<void>;
     createOrder(userID: number): Promise<string | {
         orderId: number;
@@ -65,5 +55,5 @@ export declare class OrderService {
     getOrderbyID(orderID: number): Promise<unknown>;
     getOrderTotal(orderID: number): Promise<any>;
     updateOrderStatus(orderID: number, stat: OrderStatus): Promise<string>;
-    applyCoupon(body: orderCoupon): Promise<"Can't use this coupon, because it's already used!" | "No such coupon!" | "No such order!">;
+    applyCoupon(body: orderCoupon): Promise<"No such coupon!" | "No such order!" | "Can't use this coupon, because it's already used!">;
 }

@@ -16,7 +16,7 @@ export class CartService {
   ) {}
 
   /**
-   * Functions to implement:
+   * Functions Index:
    *    [createCart]
    *    given(userId) ==> create new cart
    * 
@@ -27,19 +27,17 @@ export class CartService {
    *    [retrieveUserCarts]
    *    given(userId) ==> return all carts of a user
    *    [retrieveUserOrders]
-   *    given(userId) ==> return all carts, where `status` = Ordered, JOIN Order, order by orderDate DESC
+   *    given(userId) ==> return user's orders by finding his carts, where `status` = Ordered, JOIN Order, ordered by orderDate DESC
    *    
    *    [putCartItem]
-   *    given(cartId, productId, quantity)
-   *        ==> CASE wasn't put before: if quantity <= stock insert the row, otherwise reject
-   *            CASE already exists: if sum(quantity) <= stock update[increase] quantity, otherwise reject
+   *    given(cartId, productId, quantity) ==> checks business logic, update cart_item quantity or create new record if not exist
    *    [orderCart]
-   *    given(cartId) ==> validate it, then iterate over items and update product.stock by quantity, then update status
+   *    given(cartId) ==> validate it (all in stock), then order the cart and update product.stock
    *    [updateCartStatusToOrdered]
    *    given(cartId) ==> update status to `Ordered`
    *    
    *    [deleteCart]
-   *    given(cartId) ==> delete items in CartItems, then delete the row
+   *    given(cartId) ==> delete items in CartItems (for referential integrity), then delete the cart row
    * 
    * 
    * Endpoints functions:

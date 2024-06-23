@@ -10,6 +10,7 @@ export class CartController {
   constructor(private readonly cartService: CartService) {}
 
   /**
+   * Returns:
    * No such user!
    * No such product!
    * No enough stock!
@@ -24,6 +25,7 @@ export class CartController {
   }
 
   /**
+   * Returns:
    * No such user!
    * No such product!
    * No enough stock!
@@ -39,6 +41,7 @@ export class CartController {
   }
 
   /**
+   * Returns:
    * No such user!
    * No such product!
    * No active cart for this user!
@@ -51,6 +54,7 @@ export class CartController {
   }
   
   /**
+   * Returns:
    * No such user!
    * No active cart for this user!
    * or if success list of
@@ -72,6 +76,7 @@ export class CartController {
   }
 
   /**
+   * Returns:
    * list of
    * {
    *  cartId;

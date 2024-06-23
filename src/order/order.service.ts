@@ -17,26 +17,27 @@ export class OrderService {
   ) {}
 
   /**
-   * Functions to implement:
+   * Functions Index:
    *    [createNewOrder]
-   *    given(cartId) ==> order the cart and retrieveCartTotal, then create new Order row with status `OnTheWay` and `total` = total
+   *    given(cartId)
+   *    ==> cart.orderCart and cart_item.retrieveCartTotal, then create new Order row with status `OnTheWay` and `total` = total
    *    
    *    [retrieveOrder]
-   *    given(orderId) ==> return a row
+   *    given(orderId) ==> return an order row
    *    [retrieveAllOrders]
    *    given() ==> return all rows
    *    
    *    [updateStatus]
-   *    given(orderId, status) ==> update the status
+   *    given(orderId, status) ==> update order's status by the given one
    *    [justApplyCoupon]
-   *    given(orderId, couponId) ==> update couponId field, coupon.useCoupon, and updateTotalAfterCoupon
+   *    given(orderId, couponId) ==> update order.couponId field, coupon.useCoupon, and order.updateTotalAfterCoupon
    *    [updateTotalAfterCoupon]
-   *    given(orderId, couponId) ==> update total with total * discount
+   *    given(orderId, couponId) ==> update order.total with total * (1 - discount)
    *    
-   *    [deleteOrderbyOrderID]
+   *    [deleteOrderbyOrderID] **NOT USED
    *    given(orderId) ==> delete cart, then delete order
    *    [deleteOrderbyCartID]
-   *    given(cartId) ==> delete row
+   *    given(cartId) ==> delete an order row
    * 
    * 
    * Endpoints functions:
@@ -51,10 +52,11 @@ export class OrderService {
    *    updateOrderStatus(orderId, status) ==> retrieveOrder, if exists -> updateStatus
    *                                                          else -> report that
    *    
-   *    applyCoupon(orderId, couponId) ==> retrieveOrder, if exists -> coupon.retrieveCoupon, if exists and not `Used` -> justApplyCoupon
-   *                                                                   elif exists -> report it's used
-   *                                                                   else -> report it doesn't exist
-   *                                                      else -> report order doesn't exist
+   *    applyCoupon(orderId, couponId)
+   *    ==> retrieveOrder, if exists -> coupon.retrieveCoupon, if exists and not `Used` -> justApplyCoupon
+   *                                                           elif exists -> report it's used
+   *                                                           else -> report it doesn't exist
+   *                       else -> report order doesn't exist
    *    
    */
 
@@ -84,11 +86,6 @@ export class OrderService {
         }
       }
     );
-  }
-
-  async getAllOrders()
-  {
-    return await this.db.order.findMany();
   }
 
   async retrieveAllOrders() 
@@ -144,15 +141,15 @@ export class OrderService {
     );
   }
 
-  async deleteOrderbyOrderID(orderID: number) 
-  {
-    const givenOrder = await this.retrieveOrder(orderID);
+  // async deleteOrderbyOrderID(orderID: number) 
+  // {
+  //   const givenOrder = await this.retrieveOrder(orderID);
     
-    if(!givenOrder) return;
+  //   if(!givenOrder) return;
     
-    await this.cart.deleteCart(givenOrder.cartId);
-    await this.deleteOrderbyCartID(givenOrder.cartId);
-  }
+  //   await this.cart.deleteCart(givenOrder.cartId);
+  //   await this.deleteOrderbyCartID(givenOrder.cartId);
+  // }
 
   async deleteOrderbyCartID(cartID: number) 
   {

@@ -7,14 +7,14 @@ export class CouponService {
   constructor(private readonly db: DatabaseService) {}
   
   /**
-   * Functions to implement:
+   * Functions Index:
    *    [createCoupon]
-   *    given(discountPct) ==> create coupon with status `Fresh`
+   *    given(discountPct) ==> create new coupon record with status `Fresh`
    *    
    *    [retrieveAllCoupons]
    *    given() ==> return all rows
    *    [retrieveCoupon]
-   *    given(couponId) ==> retrieve row
+   *    given(couponId) ==> retrieve a coupon row
    *    
    *    [handCoupon]
    *    given(couponId) ==> update status to `Handed`
@@ -22,7 +22,7 @@ export class CouponService {
    *    given(couponId) ==> update status to `Used`
    * 
    *    [deleteCoupon]
-   *    given(couponId) ==> delete row
+   *    given(couponId) ==> delete a coupon row
    */
 
 

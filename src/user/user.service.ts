@@ -11,21 +11,24 @@ export class UserService {
   ) {}
 
   /**
-   * Functions to implement:
+   * Functions Index:
    *    [createUser]
-   *    given(row) ==> insert it
+   *    given(user's details) ==> create new user row
    *    
    *    [retrieveAllUsers]
    *    given() ==> return all rows
    *    [retrieveUserbyUserID]
-   *    given(userId) ==> return a row
+   *    given(userId) ==> return a user row
    *    
-   *    [deleteUser]
-   *    given(userId) ==> iterate over his carts and for each: delete Order.cartId, then delete Cart.cartId, after all, delete userId
+   *    [delUser]
+   *    given(userId) ==> delete a user row
+   *    
    *    
    *    
    * Endpoints functions:
    *    getOrderHistory(userId) ==> cart.retrieveUserOrders
+   *    
+   *    deleteUser(userId) ==> delete all his carts, cart_items, orders and then delete user row (for referential integrity)
    */
 
   async createUser(usr: Prisma.UserCreateInput)
