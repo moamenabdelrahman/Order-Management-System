@@ -1,4 +1,4 @@
-# Slash/Order Management System API
+# Order Management System API
 
 ## Overview:
 Our API facilitates comprehensive e-commerce operations, enabling user account management, product catalog interactions, and seamless shopping cart functionalities. It supports order creation, status updates, and order history retrieval while incorporating discount and coupon application features. This API ensures efficient and user-friendly management of the entire purchase lifecycle.
